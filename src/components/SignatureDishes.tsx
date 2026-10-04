@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SIGNATURE_DISHES } from "../data/restaurant";
 
 // Hardcoded descriptions and prices for the 3 verified signature dishes
@@ -19,18 +20,6 @@ const DISH_META: Record<string, { description: string; price: number; image: str
   },
 };
 
-function ImagePlaceholder({ path, className, alt }: { path: string; className?: string; alt?: string }) {
-  return (
-    <div
-      aria-label={alt ?? `${path} placeholder`}
-      className={`w-full h-full flex items-center justify-center bg-[#F5EFE3] border border-dashed border-[var(--color-accent-brass)]/40 ${className ?? ""}`}
-    >
-      <span className="text-xs text-[var(--color-accent-brass)]/60 px-4 text-center break-all">
-        {path}
-      </span>
-    </div>
-  );
-}
 
 interface DishCardProps {
   name: string;
@@ -55,10 +44,15 @@ function DishCard({ name, tag, category, description, price, image, large }: Dis
         <div className="absolute top-4 left-4 z-10 bg-[var(--color-accent-brass)] text-white text-xs uppercase tracking-wide px-3 py-1 rounded-full">
           {tag}
         </div>
-        {/* Placeholder — replace inner div with <Image> once photo is available */}
-        <div className="w-full h-full transition-transform duration-500 group-hover:scale-105">
-          <ImagePlaceholder path={image} alt={`${name} - dish photo placeholder`} />
-        </div>
+        <Image
+          src={image}
+          alt={name}
+          fill
+          priority={false}
+          quality={85}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
       </div>
 
       {/* Text block */}

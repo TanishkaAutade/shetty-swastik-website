@@ -8,8 +8,7 @@ export const RESTAURANT_INFO: Restaurant = {
     "Hotel Swastik Food Mall, Nagar Manmad Hwy, near Jangali Maharaj Ashram, Kopargaon, Maharashtra 423601",
   phone: "073503 33222",
   phoneLink: "tel:+91750333222",
-  googleMapsUrl:
-    "https://www.google.com/maps/place/Hotel+Shetty's+Swastik-+Veg+Treat/",
+  googleMapsUrl: "https://maps.app.goo.gl/S9jjquymy1Quixu78",
   rating: 4.5,
   reviewCount: 9808,
 };

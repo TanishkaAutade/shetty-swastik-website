@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { FaInstagram } from "react-icons/fa";
 import { RESTAURANT_INFO } from "../data/restaurant";
 
 export default function Footer() {
@@ -6,12 +8,15 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
-            <h3 className="font-playfair text-xl text-white">
-              Hotel Shetty&apos;s Swastik
-            </h3>
-            <p className="text-[var(--color-accent-brass)] text-xs tracking-widest uppercase mt-1">
-              VEG TREAT
-            </p>
+            <Image
+              src="/images/logo.png"
+              alt="Hotel Shetty's Swastik - Veg Treat"
+              width={240}
+              height={60}
+              priority={false}
+              quality={90}
+              className="h-12 md:h-14 w-auto object-contain brightness-0 invert"
+            />
             <p className="text-sm text-[#FFFFF0]/70 mt-4 font-marathi">
               होटल शेट्टी&apos;स स्वास्तिक- वेज ट्रीट
             </p>
@@ -56,6 +61,16 @@ export default function Footer() {
             <p className="text-sm text-[#FFFFF0]/70 mt-4">
               ★ 4.5 · 9,808 Reviews
             </p>
+            <a
+              href="https://www.instagram.com/swastik__restaurant__kopargaon/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Instagram page"
+              className="flex items-center gap-2 text-sm text-white/80 hover:text-[var(--color-accent-brass)] transition-colors mt-3"
+            >
+              <FaInstagram size={16} />
+              @swastik__restaurant__kopargaon
+            </a>
           </div>
         </div>
 

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Menu, X, MapPin } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 import { RESTAURANT_INFO } from "../data/restaurant";
 
 export default function Navbar() {
@@ -35,14 +37,17 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
-          <div className="flex flex-col">
-            <span className="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--color-foreground)]">
-              Hotel Shetty&apos;s Swastik
-            </span>
-            <span className="text-[var(--color-accent-brass)] text-xs tracking-widest uppercase">
-              Veg Treat
-            </span>
-          </div>
+          <a href="#top" aria-label="Back to top">
+            <Image
+              src="/images/logo.png"
+              alt="Hotel Shetty's Swastik - Veg Treat"
+              width={240}
+              height={60}
+              priority={true}
+              quality={90}
+              className="h-10 md:h-12 w-auto object-contain max-w-[40vw]"
+            />
+          </a>
 
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
@@ -56,7 +61,16 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-2">
+            <a
+              href="https://www.instagram.com/swastik__restaurant__kopargaon/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Instagram page"
+              className="hidden lg:inline-flex p-2 rounded-md text-[var(--color-foreground)] hover:text-[var(--color-accent-terracotta)] transition-colors"
+            >
+              <FaInstagram size={20} />
+            </a>
             <a
               href={RESTAURANT_INFO.googleMapsUrl}
               target="_blank"

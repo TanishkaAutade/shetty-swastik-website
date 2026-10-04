@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Check } from "lucide-react";
 
 const ABOUT_BULLETS = [
@@ -8,15 +9,6 @@ const ABOUT_BULLETS = [
   "Ample parking for families and travellers",
 ];
 
-function ImagePlaceholder({ path, alt }: { path: string; alt?: string }) {
-  return (
-    <div aria-label={alt ?? `${path} placeholder`} className="w-full h-full flex items-center justify-center bg-[#F5EFE3] border border-dashed border-[var(--color-accent-brass)]/40 rounded-xl">
-      <span className="text-xs text-[var(--color-accent-brass)]/60 px-4 text-center break-all">
-        {path}
-      </span>
-    </div>
-  );
-}
 
 export default function AboutSection() {
   return (
@@ -32,10 +24,17 @@ export default function AboutSection() {
             {/* Decorative brass outline square — desktop only */}
             <div className="hidden md:block absolute -bottom-6 -left-6 w-full h-full border-2 border-[var(--color-accent-brass)]/30 rounded-xl z-0" />
 
-            {/* Image placeholder */}
+            {/* Restaurant image */}
             <div className="relative z-10 aspect-[4/5] rounded-xl overflow-hidden shadow-lg">
-              {/* Replace with <Image src="/images/restaurant.jpg" fill alt="Restaurant interior" className="object-cover" /> once photo is available */}
-              <ImagePlaceholder path="/images/restaurant.jpg" alt="Restaurant interior photo placeholder" />
+              <Image
+                src="/images/restaurant.jpg"
+                alt="The welcoming dining space at Hotel Shetty's Swastik"
+                fill
+                priority={false}
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </div>
 

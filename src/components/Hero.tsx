@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { RESTAURANT_INFO } from "../data/restaurant";
 
 export default function Hero() {
@@ -41,12 +42,17 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side: Image Placeholder */}
-        <div aria-label="Hero image placeholder" className="w-full lg:w-[45%] aspect-[3/4] md:aspect-[4/5] relative rounded-xl shadow-xl bg-[var(--color-background)] border-2 border-[var(--color-accent-brass)]/20 flex flex-col items-center justify-center p-8 text-center">
-          <p className="text-[var(--color-foreground)]/60 text-sm border border-dashed border-[var(--color-foreground)]/20 p-4 rounded-md">
-            Hero image placeholder <br />
-            <span className="font-mono text-xs mt-2 block">/public/images/hero-food.jpg</span>
-          </p>
+        {/* Right Side: Hero Image */}
+        <div className="w-full lg:w-[45%] aspect-[3/4] md:aspect-[4/5] relative rounded-xl shadow-xl overflow-hidden">
+          <Image
+            src="/images/hero-food.jpg"
+            alt="A spread of vegetarian dishes at Hotel Shetty's Swastik"
+            fill
+            priority={true}
+            quality={90}
+            sizes="(max-width: 768px) 100vw, 45vw"
+            className="object-cover"
+          />
         </div>
       </div>
     </section>

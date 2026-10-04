@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import { GALLERY_IMAGES } from "@/data/restaurant";
 import type { GalleryImage } from "@/types";
 import ImageLightbox from "./ImageLightbox";
@@ -52,15 +53,18 @@ function GalleryTile({
       aria-label={`View image: ${image.alt}`}
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onClick()}
     >
-      {/* Placeholder — replace with <Image> once files exist */}
-      <div aria-label={`${image.alt} placeholder`} className="w-full h-full flex items-center justify-center bg-[#F5EFE3] border border-dashed border-[var(--color-accent-brass)]/40">
-        <span className="text-xs text-[var(--color-accent-brass)]/60 px-2 text-center break-all leading-relaxed">
-          {image.src}
-        </span>
-      </div>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        priority={false}
+        quality={85}
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+        className="object-cover"
+      />
 
       {/* Hover overlay */}
-      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
         <p className="text-sm text-white font-medium px-4 text-center">{image.alt}</p>
       </div>
     </div>

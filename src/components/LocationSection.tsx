@@ -1,4 +1,5 @@
 import { MapPin, Phone } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 import { RESTAURANT_INFO } from "../data/restaurant";
 
 export default function LocationSection() {
@@ -57,6 +58,22 @@ export default function LocationSection() {
               <p className="text-lg font-medium text-[#1C1917]">
                 {RESTAURANT_INFO.phone}
               </p>
+            </div>
+
+            <div className="mb-6">
+              <p className="text-[var(--color-accent-brass)] uppercase tracking-widest text-xs mb-2 font-semibold">
+                INSTAGRAM
+              </p>
+              <a
+                href="https://www.instagram.com/swastik__restaurant__kopargaon/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Instagram page"
+                className="inline-flex items-center gap-2 text-base text-[var(--color-accent-terracotta)] hover:underline transition-colors"
+              >
+                <FaInstagram size={18} />
+                @swastik__restaurant__kopargaon
+              </a>
             </div>
 
             <div className="mb-8">

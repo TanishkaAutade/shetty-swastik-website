@@ -52,6 +52,10 @@ export const metadata: Metadata = {
   },
   authors: [{ name: "Hotel Shetty's Swastik" }],
   category: "restaurant",
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -82,7 +86,10 @@ export default function RootLayout({
     },
     "hasMenu": "See website menu",
     "acceptsReservations": "False",
-    "url": "https://www.google.com/maps/place/Hotel+Shetty's+Swastik-+Veg+Treat/"
+    "url": "https://www.google.com/maps/place/Hotel+Shetty's+Swastik-+Veg+Treat/",
+    "sameAs": [
+      "https://www.instagram.com/swastik__restaurant__kopargaon/"
+    ]
   };
 
   return (

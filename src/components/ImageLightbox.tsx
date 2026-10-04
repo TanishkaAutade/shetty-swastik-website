@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import type { GalleryImage } from "@/types";
 
@@ -109,19 +110,21 @@ export default function ImageLightbox({
           <ChevronRight size={22} />
         </button>
 
-        {/* Image placeholder */}
+        {/* Image */}
         <div
-          className="aspect-video rounded-lg overflow-hidden flex items-center justify-center bg-[#2A2520] border border-dashed border-[var(--color-accent-brass)]/40"
+          className="relative aspect-video rounded-lg overflow-hidden bg-[#2A2520]"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Replace this placeholder div with:
-              <Image src={image.src} fill alt={image.alt} className="object-cover" />
-              once the photo files are available in /public/images/gallery/ */}
-          <div className="text-center px-8">
-            <p className="text-white/60 text-sm font-mono break-all mb-2">{image.src}</p>
-            <p className="text-white/40 text-xs">{image.alt}</p>
-          </div>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            priority={true}
+            quality={90}
+            sizes="100vw"
+            className="object-contain"
+          />
         </div>
 
         {/* Counter */}
