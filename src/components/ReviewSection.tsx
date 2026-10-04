@@ -1,5 +1,8 @@
+"use client";
+
 import { Star, Quote, ExternalLink } from "lucide-react";
 import { RESTAURANT_INFO } from "@/data/restaurant";
+import { Reveal } from "./Reveal";
 
 const REVIEW_SUMMARIES = [
   "Guests frequently highlight the Maharashtrian and Punjabi flavours.",
@@ -16,7 +19,7 @@ export default function ReviewSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
-        <div className="mb-10">
+        <Reveal className="mb-10">
           <span className="text-[var(--color-accent-brass)] text-sm font-bold tracking-[0.2em] uppercase block mb-4">
             What Guests Say
           </span>
@@ -24,7 +27,7 @@ export default function ReviewSection() {
             Loved by Thousands
           </h2>
           <div className="w-24 h-px bg-[var(--color-accent-brass)]" />
-        </div>
+        </Reveal>
 
         {/* Big Rating Card */}
         <div className="max-w-3xl mx-auto bg-[var(--color-surface)] rounded-xl p-8 md:p-12 border border-black/5 shadow-sm text-center">
@@ -55,22 +58,23 @@ export default function ReviewSection() {
           What reviewers mention most
         </p>
         <div className="grid md:grid-cols-3 gap-6">
-          {REVIEW_SUMMARIES.map((summary) => (
-            <div
-              key={summary}
-              className="bg-[var(--color-surface)] rounded-xl p-6 border border-black/5 shadow-sm"
-            >
-              <Quote
-                size={24}
-                className="text-[var(--color-accent-brass)] mb-4"
-              />
-              <p className="text-base text-[var(--color-foreground)]/80 leading-relaxed">
-                {summary}
-              </p>
-              <p className="text-xs text-[var(--color-foreground)]/50 mt-4 italic">
-                — Google review summary
-              </p>
-            </div>
+          {REVIEW_SUMMARIES.map((summary, index) => (
+            <Reveal key={summary} delay={index * 0.1}>
+              <div
+                className="bg-[var(--color-surface)] rounded-xl p-6 border border-black/5 shadow-sm"
+              >
+                <Quote
+                  size={24}
+                  className="text-[var(--color-accent-brass)] mb-4"
+                />
+                <p className="text-base text-[var(--color-foreground)]/80 leading-relaxed">
+                  {summary}
+                </p>
+                <p className="text-xs text-[var(--color-foreground)]/50 mt-4 italic">
+                  — Google review summary
+                </p>
+              </div>
+            </Reveal>
           ))}
         </div>
 

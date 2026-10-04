@@ -1,12 +1,15 @@
+"use client";
+
 import { MapPin, Phone } from "lucide-react";
 import { FaInstagram } from "react-icons/fa";
 import { RESTAURANT_INFO } from "../data/restaurant";
+import { Reveal } from "./Reveal";
 
 export default function LocationSection() {
   return (
     <section id="visit" className="py-20 md:py-28 bg-[#FFFFF0]">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <p className="text-[var(--color-accent-brass)] uppercase tracking-widest text-sm mb-4 font-semibold">
             VISIT US
           </p>
@@ -17,7 +20,7 @@ export default function LocationSection() {
             Stop by for a meal — we&apos;re easy to find.
           </p>
           <div className="w-24 h-[1px] bg-[var(--color-accent-brass)] mx-auto mb-12"></div>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
           <a

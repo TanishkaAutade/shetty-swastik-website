@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { Check } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const ABOUT_BULLETS = [
   "Pure vegetarian kitchen",
@@ -40,17 +43,19 @@ export default function AboutSection() {
 
           {/* Right — Text */}
           <div>
-            <span className="text-[var(--color-accent-brass)] text-sm font-bold tracking-[0.2em] uppercase block mb-4">
-              The Swastik Experience
-            </span>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl text-[var(--color-foreground)] leading-tight mb-6">
-              More Than Just a Meal
-            </h2>
-            <p className="text-lg text-[var(--color-foreground)]/80 leading-relaxed mb-8 max-w-xl">
-              Whether you&apos;re stopping by Kopargaon for a meal or looking for a comfortable
-              vegetarian dining experience, Swastik brings together familiar Indian flavours
-              and a welcoming atmosphere.
-            </p>
+            <Reveal>
+              <span className="text-[var(--color-accent-brass)] text-sm font-bold tracking-[0.2em] uppercase block mb-4">
+                The Swastik Experience
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl lg:text-5xl text-[var(--color-foreground)] leading-tight mb-6">
+                More Than Just a Meal
+              </h2>
+              <p className="text-lg text-[var(--color-foreground)]/80 leading-relaxed mb-8 max-w-xl">
+                Whether you&apos;re stopping by Kopargaon for a meal or looking for a comfortable
+                vegetarian dining experience, Swastik brings together familiar Indian flavours
+                and a welcoming atmosphere.
+              </p>
+            </Reveal>
 
             {/* Bullet list */}
             <ul className="space-y-4">
@@ -72,3 +77,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

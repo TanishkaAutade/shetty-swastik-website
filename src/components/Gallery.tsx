@@ -5,6 +5,7 @@ import Image from "next/image";
 import { GALLERY_IMAGES } from "@/data/restaurant";
 import type { GalleryImage } from "@/types";
 import ImageLightbox from "./ImageLightbox";
+import { Reveal } from "./Reveal";
 
 // ─── Category mapping — local to this file, data file is read-only ───────────
 
@@ -105,7 +106,7 @@ export default function Gallery() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
           {/* Header */}
-          <div className="mb-10">
+          <Reveal className="mb-10">
             <span className="text-[var(--color-accent-brass)] text-sm font-bold tracking-[0.2em] uppercase block mb-4">
               Gallery
             </span>
@@ -116,7 +117,7 @@ export default function Gallery() {
               A glimpse into our kitchen, our plates, and our dining space.
             </p>
             <div className="w-24 h-px bg-[var(--color-accent-brass)]" />
-          </div>
+          </Reveal>
 
           {/* Category tabs */}
           <div
@@ -149,22 +150,24 @@ export default function Gallery() {
 
           {/* Masonry grid */}
           {filteredImages.length > 0 ? (
-            <div className="grid grid-flow-dense grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-4">
-              {filteredImages.map((image, filteredIdx) => {
-                // Recover the original GALLERY_IMAGES index for row-span lookup
-                const originalIndex = GALLERY_IMAGES.findIndex(
-                  (g) => g.src === image.src
-                );
-                return (
-                  <GalleryTile
-                    key={image.src}
-                    image={image}
-                    originalIndex={originalIndex}
-                    onClick={() => setLightboxIndex(filteredIdx)}
-                  />
-                );
-              })}
-            </div>
+            <Reveal>
+              <div className="grid grid-flow-dense grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[180px] md:auto-rows-[220px] gap-4">
+                {filteredImages.map((image, filteredIdx) => {
+                  // Recover the original GALLERY_IMAGES index for row-span lookup
+                  const originalIndex = GALLERY_IMAGES.findIndex(
+                    (g) => g.src === image.src
+                  );
+                  return (
+                    <GalleryTile
+                      key={image.src}
+                      image={image}
+                      originalIndex={originalIndex}
+                      onClick={() => setLightboxIndex(filteredIdx)}
+                    />
+                  );
+                })}
+              </div>
+            </Reveal>
           ) : (
             <div className="py-16 flex items-center justify-center">
               <p className="text-base text-[var(--color-foreground)]/60 italic">

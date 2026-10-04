@@ -1,5 +1,8 @@
+"use client";
+
 import { Leaf, ChefHat, Zap, Car, Sparkles, type LucideIcon } from "lucide-react";
 import { FEATURES } from "@/data/restaurant";
+import { Reveal } from "./Reveal";
 
 // Local metadata — data file is read-only, titles pulled from FEATURES
 interface FeatureMeta {
@@ -36,7 +39,7 @@ export default function WhySwastik() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-10">
+        <Reveal className="text-center mb-10">
           <span className="text-[var(--color-accent-brass)] text-sm font-bold tracking-[0.2em] uppercase block mb-4">
             Why Swastik
           </span>
@@ -46,32 +49,33 @@ export default function WhySwastik() {
           <p className="text-base text-[var(--color-foreground)]/70 max-w-xl mx-auto">
             Five small reasons that make a big difference.
           </p>
-        </div>
+        </Reveal>
 
         {/* Feature cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {FEATURES.map((feature) => {
+          {FEATURES.map((feature, index) => {
             const meta = FEATURE_META[feature.title];
             if (!meta) return null;
             const { description, Icon } = meta;
             return (
-              <div
-                key={feature.title}
-                className="bg-[var(--color-background)] rounded-xl p-6 border border-black/5"
-              >
-                <div className="w-12 h-12 rounded-full bg-[var(--color-accent-terracotta)]/10 flex items-center justify-center mb-4">
-                  <Icon
-                    size={24}
-                    className="text-[var(--color-accent-terracotta)]"
-                  />
+              <Reveal key={feature.title} delay={index * 0.08}>
+                <div
+                  className="bg-[var(--color-background)] rounded-xl p-6 border border-black/5"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[var(--color-accent-terracotta)]/10 flex items-center justify-center mb-4">
+                    <Icon
+                      size={24}
+                      className="text-[var(--color-accent-terracotta)]"
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[var(--color-foreground)] mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-[var(--color-foreground)]/70 leading-relaxed">
+                    {description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-[var(--color-foreground)] mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-[var(--color-foreground)]/70 leading-relaxed">
-                  {description}
-                </p>
-              </div>
+              </Reveal>
             );
           })}
         </div>

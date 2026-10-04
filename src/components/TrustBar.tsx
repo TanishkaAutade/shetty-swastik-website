@@ -1,5 +1,8 @@
+"use client";
+
 import { Star, MessageSquare, Leaf, Car, Zap } from "lucide-react";
 import { RESTAURANT_INFO } from "../data/restaurant";
+import { Reveal } from "./Reveal";
 
 export default function TrustBar() {
   const items = [
@@ -12,7 +15,7 @@ export default function TrustBar() {
 
   return (
     <section id="trust-bar" className="bg-[var(--color-surface)] border-y border-[var(--color-accent-brass)]/30">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
+      <Reveal className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
         <div className="flex flex-wrap justify-center md:justify-between items-center gap-y-6 gap-x-4">
           {items.map((item, index) => {
             const Icon = item.icon;
@@ -31,7 +34,7 @@ export default function TrustBar() {
             );
           })}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

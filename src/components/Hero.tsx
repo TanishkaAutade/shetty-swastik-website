@@ -1,24 +1,79 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { RESTAURANT_INFO } from "../data/restaurant";
 
+// ─── Animation variants ───────────────────────────────────────────────────────
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number], delay: 0.2 },
+  },
+};
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
 export default function Hero() {
+  const prefersReduced = useReducedMotion();
+
   return (
     <section id="hero" className="pt-32 pb-20 md:pt-40 md:pb-24 max-w-7xl mx-auto px-6 lg:px-8">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-        
+
         {/* Left Side: Text Content */}
-        <div className="w-full lg:w-[55%] flex flex-col items-start text-left">
-          <span className="text-[var(--color-accent-brass)] text-xs font-bold tracking-[0.2em] uppercase mb-4">
+        <motion.div
+          className="w-full lg:w-[55%] flex flex-col items-start text-left"
+          variants={prefersReduced ? undefined : containerVariants}
+          initial={prefersReduced ? undefined : "hidden"}
+          animate={prefersReduced ? undefined : "visible"}
+        >
+          <motion.span
+            className="text-[var(--color-accent-brass)] text-xs font-bold tracking-[0.2em] uppercase mb-4"
+            variants={prefersReduced ? undefined : itemVariants}
+          >
             Pure Vegetarian • Kopargaon
-          </span>
-          <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl text-[var(--color-foreground)] font-bold leading-tight mb-6">
+          </motion.span>
+
+          <motion.h1
+            className="font-[family-name:var(--font-display)] text-4xl md:text-5xl lg:text-6xl text-[var(--color-foreground)] font-bold leading-tight mb-6"
+            variants={prefersReduced ? undefined : itemVariants}
+          >
             Good Food. <br className="hidden sm:block" /> Good Company. <br className="hidden sm:block" /> The Swastik Way.
-          </h1>
-          <p className="font-[family-name:var(--font-body)] text-lg text-[var(--color-foreground)]/80 max-w-md mb-8 leading-relaxed">
+          </motion.h1>
+
+          <motion.p
+            className="font-[family-name:var(--font-body)] text-lg text-[var(--color-foreground)]/80 max-w-md mb-8 leading-relaxed"
+            variants={prefersReduced ? undefined : itemVariants}
+          >
             Discover authentic vegetarian flavours, comforting favourites and a dining experience made for families, travellers and food lovers.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8">
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8"
+            variants={prefersReduced ? undefined : itemVariants}
+          >
             <a
               href="#menu"
               className="inline-flex justify-center items-center px-6 py-3 bg-[var(--color-accent-terracotta)] text-[var(--color-background)] font-medium rounded-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent-terracotta)]"
@@ -33,17 +88,25 @@ export default function Hero() {
             >
               Get Directions
             </a>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[var(--color-foreground)]/70">
+          <motion.div
+            className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[var(--color-foreground)]/70"
+            variants={prefersReduced ? undefined : itemVariants}
+          >
             <span className="text-[var(--color-accent-brass)]">★</span>
             <span className="font-semibold">{RESTAURANT_INFO.rating}</span>
             <span>· {RESTAURANT_INFO.reviewCount.toLocaleString()}+ Google Reviews</span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right Side: Hero Image */}
-        <div className="w-full lg:w-[45%] aspect-[3/4] md:aspect-[4/5] relative rounded-xl shadow-xl overflow-hidden">
+        <motion.div
+          className="w-full lg:w-[45%] aspect-[3/4] md:aspect-[4/5] relative rounded-xl shadow-xl overflow-hidden"
+          variants={prefersReduced ? undefined : imageVariants}
+          initial={prefersReduced ? undefined : "hidden"}
+          animate={prefersReduced ? undefined : "visible"}
+        >
           <Image
             src="/images/hero-food.jpg"
             alt="A spread of vegetarian dishes at Hotel Shetty's Swastik"
@@ -53,7 +116,7 @@ export default function Hero() {
             sizes="(max-width: 768px) 100vw, 45vw"
             className="object-cover"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

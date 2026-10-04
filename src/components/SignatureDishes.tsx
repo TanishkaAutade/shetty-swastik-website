@@ -1,5 +1,8 @@
+﻿"use client";
+
 import Image from "next/image";
 import { SIGNATURE_DISHES } from "../data/restaurant";
+import { Reveal } from "./Reveal";
 
 // Hardcoded descriptions and prices for the 3 verified signature dishes
 const DISH_META: Record<string, { description: string; price: number; image: string }> = {
@@ -9,7 +12,7 @@ const DISH_META: Record<string, { description: string; price: number; image: str
     image: "/images/signature-misal.jpg",
   },
   "Rumali Khakra": {
-    description: "Thin, crisp, hand-rolled — a Swastik favourite.",
+    description: "Thin, crisp, hand-rolled â€” a Swastik favourite.",
     price: 140,
     image: "/images/rumali-khakra.jpg",
   },
@@ -71,7 +74,7 @@ function DishCard({ name, tag, category, description, price, image, large }: Dis
           {description}
         </p>
         <p className="text-base font-medium text-[var(--color-accent-terracotta)] mt-3">
-          ₹{price}
+          â‚¹{price}
         </p>
       </div>
     </article>
@@ -87,7 +90,7 @@ export default function SignatureDishes() {
       className="py-20 md:py-28 max-w-7xl mx-auto px-6 lg:px-8"
     >
       {/* Header */}
-      <div className="mb-12 md:mb-16">
+      <Reveal className="mb-12 md:mb-16">
         <span className="text-[var(--color-accent-brass)] text-sm font-bold tracking-[0.2em] uppercase block mb-4">
           A Few Favourites
         </span>
@@ -95,12 +98,12 @@ export default function SignatureDishes() {
           Some of the flavours guests come back for.
         </h2>
         <div className="w-24 h-px bg-[var(--color-accent-brass)] mt-8" />
-      </div>
+      </Reveal>
 
       {/* Asymmetric Grid */}
       <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-        {/* Left — tall card (Misal Pav) */}
-        <div className="md:row-span-2">
+        {/* Left â€” tall card (Misal Pav) */}
+        <Reveal className="md:row-span-2" delay={0}>
           <DishCard
             name={misal.name}
             tag={misal.tag}
@@ -110,25 +113,29 @@ export default function SignatureDishes() {
             image={DISH_META[misal.name].image}
             large
           />
-        </div>
+        </Reveal>
 
-        {/* Right — two stacked cards */}
-        <DishCard
-          name={khakra.name}
-          tag={khakra.tag}
-          category={khakra.category}
-          description={DISH_META[khakra.name].description}
-          price={DISH_META[khakra.name].price}
-          image={DISH_META[khakra.name].image}
-        />
-        <DishCard
-          name={sevBhaji.name}
-          tag={sevBhaji.tag}
-          category={sevBhaji.category}
-          description={DISH_META[sevBhaji.name].description}
-          price={DISH_META[sevBhaji.name].price}
-          image={DISH_META[sevBhaji.name].image}
-        />
+        {/* Right â€” two stacked cards */}
+        <Reveal delay={0.1}>
+          <DishCard
+            name={khakra.name}
+            tag={khakra.tag}
+            category={khakra.category}
+            description={DISH_META[khakra.name].description}
+            price={DISH_META[khakra.name].price}
+            image={DISH_META[khakra.name].image}
+          />
+        </Reveal>
+        <Reveal delay={0.2}>
+          <DishCard
+            name={sevBhaji.name}
+            tag={sevBhaji.tag}
+            category={sevBhaji.category}
+            description={DISH_META[sevBhaji.name].description}
+            price={DISH_META[sevBhaji.name].price}
+            image={DISH_META[sevBhaji.name].image}
+          />
+        </Reveal>
       </div>
     </section>
   );

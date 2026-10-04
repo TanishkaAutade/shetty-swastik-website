@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { Reveal } from "./Reveal";
 import {
   MENU_ITEMS,
   MENU_CATEGORIES,
@@ -48,7 +49,7 @@ export default function MenuSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
-        <div className="mb-10">
+        <Reveal className="mb-10">
           <span className="text-[var(--color-accent-brass)] text-sm font-bold tracking-[0.2em] uppercase block mb-4">
             Explore the Menu
           </span>
@@ -60,7 +61,7 @@ export default function MenuSection() {
             vegetarian spread.
           </p>
           <div className="w-24 h-px bg-[var(--color-accent-brass)]" />
-        </div>
+        </Reveal>
 
         {/* Category Tabs */}
         <div
@@ -91,8 +92,10 @@ export default function MenuSection() {
         {/* Item Grid */}
         {filteredItems.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredItems.map((item) => (
-              <MenuItemCard key={`${item.name}-${item.menuCategory}`} item={item} />
+            {filteredItems.map((item, index) => (
+              <Reveal key={`${item.name}-${item.menuCategory}`} delay={Math.min(index * 0.03, 0.3)}>
+                <MenuItemCard item={item} />
+              </Reveal>
             ))}
           </div>
         ) : (

@@ -1,17 +1,22 @@
+"use client";
+
 import { MapPin, Phone, UtensilsCrossed } from "lucide-react";
 import { RESTAURANT_INFO } from "../data/restaurant";
+import { Reveal } from "./Reveal";
 
 export default function FinalCTA() {
   return (
     <section id="final-cta" className="w-full py-20 md:py-28 bg-[var(--color-accent-terracotta)]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl text-white mb-4">
-            Hungry Yet?
-          </h2>
-          <p className="text-lg md:text-xl text-white/85 mb-10">
-            Make your next stop a delicious one.
-          </p>
+          <Reveal>
+            <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl text-white mb-4">
+              Hungry Yet?
+            </h2>
+            <p className="text-lg md:text-xl text-white/85 mb-10">
+              Make your next stop a delicious one.
+            </p>
+          </Reveal>
           
           <div className="flex flex-wrap justify-center gap-4">
             <a
