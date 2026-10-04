@@ -69,7 +69,7 @@ export default function RootLayout({
     "name": "Hotel Shetty's Swastik - Veg Treat",
     "alternateName": "होटल शेट्टी'स स्वास्तिक- वेज ट्रीट",
     "servesCuisine": ["Indian", "Maharashtrian", "Punjabi", "Chinese", "South Indian"],
-    "priceRange": "₹₹",
+    "priceRange": "\u20B9\u20B9",
     "telephone": "+91-7350333222",
     "address": {
       "@type": "PostalAddress",

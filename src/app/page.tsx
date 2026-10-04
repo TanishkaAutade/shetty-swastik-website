@@ -11,6 +11,7 @@ import LocationSection from "../components/LocationSection";
 import FinalCTA from "../components/FinalCTA";
 import Footer from "../components/Footer";
 import MobileActionBar from "../components/MobileActionBar";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileActionBar />
+      <WhatsAppButton />
     </>
   );
 }

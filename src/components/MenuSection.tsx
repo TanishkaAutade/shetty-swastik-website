@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import {
   MENU_ITEMS,
@@ -12,22 +13,37 @@ import {
 // ─── Item Card ──────────────────────────────────────────────────────────────
 
 function MenuItemCard({ item }: { item: MenuItemWithPrice }) {
+  const isSignature = item.menuCategory === "Signature";
+
   return (
-    <article className="bg-[var(--color-surface)] rounded-lg border border-black/5 p-5 hover:shadow-md transition-shadow">
+    <motion.article
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className="group relative bg-[var(--color-surface)] rounded-lg border border-black/5 border-l-4 border-l-transparent hover:border-l-[var(--color-accent-terracotta)] p-5 shadow-md hover:shadow-lg transition-all duration-200"
+    >
+      {isSignature && (
+        <span className="absolute top-2 right-2 bg-[var(--color-accent-brass)] text-white text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 hidden md:block pointer-events-none">
+          Popular
+        </span>
+      )}
       <div className="flex items-start justify-between gap-3">
         <h3 className="font-[family-name:var(--font-body)] font-medium text-base text-[var(--color-foreground)] leading-snug">
           {item.name}
         </h3>
-        <span className="font-medium text-[var(--color-accent-terracotta)] whitespace-nowrap text-base flex-shrink-0">
-          ₹{item.price}
-        </span>
+        <motion.span
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="font-medium text-[var(--color-accent-terracotta)] whitespace-nowrap text-base flex-shrink-0 inline-block"
+        >
+          {"\u20B9"}{item.price}
+        </motion.span>
       </div>
       {item.description && (
         <p className="text-sm text-[var(--color-foreground)]/60 mt-1 leading-relaxed">
           {item.description}
         </p>
       )}
-    </article>
+    </motion.article>
   );
 }
 

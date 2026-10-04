@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { SIGNATURE_DISHES } from "../data/restaurant";
@@ -12,7 +12,7 @@ const DISH_META: Record<string, { description: string; price: number; image: str
     image: "/images/signature-misal.jpg",
   },
   "Rumali Khakra": {
-    description: "Thin, crisp, hand-rolled â€” a Swastik favourite.",
+    description: "Thin, crisp, hand-rolled \u2014 a Swastik favourite.",
     price: 140,
     image: "/images/rumali-khakra.jpg",
   },
@@ -74,7 +74,7 @@ function DishCard({ name, tag, category, description, price, image, large }: Dis
           {description}
         </p>
         <p className="text-base font-medium text-[var(--color-accent-terracotta)] mt-3">
-          â‚¹{price}
+          {"\u20B9"}{price}
         </p>
       </div>
     </article>
@@ -102,7 +102,7 @@ export default function SignatureDishes() {
 
       {/* Asymmetric Grid */}
       <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-        {/* Left â€” tall card (Misal Pav) */}
+        {/* Left - tall card (Misal Pav) */}
         <Reveal className="md:row-span-2" delay={0}>
           <DishCard
             name={misal.name}
@@ -115,7 +115,7 @@ export default function SignatureDishes() {
           />
         </Reveal>
 
-        {/* Right â€” two stacked cards */}
+        {/* Right - two stacked cards */}
         <Reveal delay={0.1}>
           <DishCard
             name={khakra.name}

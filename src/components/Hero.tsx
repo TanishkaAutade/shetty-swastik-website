@@ -1,7 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { RESTAURANT_INFO } from "../data/restaurant";
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -36,10 +37,18 @@ const imageVariants = {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
   const prefersReduced = useReducedMotion();
 
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+
   return (
-    <section id="hero" className="pt-32 pb-20 md:pt-40 md:pb-24 max-w-7xl mx-auto px-6 lg:px-8">
+    <section ref={heroRef} id="hero" className="pt-32 pb-20 md:pt-40 md:pb-24 max-w-7xl mx-auto px-6 lg:px-8">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
         {/* Left Side: Text Content */}
@@ -106,6 +115,7 @@ export default function Hero() {
           variants={prefersReduced ? undefined : imageVariants}
           initial={prefersReduced ? undefined : "hidden"}
           animate={prefersReduced ? undefined : "visible"}
+          style={{ y: prefersReduced ? 0 : imageY }}
         >
           <Image
             src="/images/hero-food.jpg"
