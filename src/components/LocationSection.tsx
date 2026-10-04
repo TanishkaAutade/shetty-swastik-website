@@ -94,14 +94,14 @@ export default function LocationSection() {
                 href={RESTAURANT_INFO.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[var(--color-accent-terracotta)] text-white px-6 py-3 rounded-md font-medium hover:bg-opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 bg-[var(--color-accent-terracotta)] text-white px-6 py-3 rounded-md font-medium hover:bg-opacity-90 active:scale-95 transition-all duration-100"
               >
                 <MapPin size={18} />
                 Get Directions
               </a>
               <a
                 href={RESTAURANT_INFO.phoneLink}
-                className="inline-flex items-center gap-2 bg-white border border-[var(--color-accent-terracotta)] text-[var(--color-accent-terracotta)] hover:bg-[#FFF5F3] px-6 py-3 rounded-md font-medium transition-colors"
+                className="inline-flex items-center gap-2 bg-white border border-[var(--color-accent-terracotta)] text-[var(--color-accent-terracotta)] hover:bg-[#FFF5F3] active:scale-95 transition-all duration-100 px-6 py-3 rounded-md font-medium"
               >
                 <Phone size={18} />
                 Call Restaurant

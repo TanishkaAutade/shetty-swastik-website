@@ -3,6 +3,7 @@
 import { Star, Quote, ExternalLink } from "lucide-react";
 import { RESTAURANT_INFO } from "@/data/restaurant";
 import { Reveal } from "./Reveal";
+import { AnimatedNumber } from "./AnimatedNumber";
 
 const REVIEW_SUMMARIES = [
   "Guests frequently highlight the Maharashtrian and Punjabi flavours.",
@@ -32,7 +33,7 @@ export default function ReviewSection() {
         {/* Big Rating Card */}
         <div className="max-w-3xl mx-auto bg-[var(--color-surface)] rounded-xl p-8 md:p-12 border border-black/5 shadow-sm text-center">
           <p className="font-[family-name:var(--font-display)] text-6xl md:text-7xl text-[var(--color-accent-terracotta)] leading-none mb-4">
-            {RESTAURANT_INFO.rating}
+            <AnimatedNumber value={RESTAURANT_INFO.rating} decimals={1} />
           </p>
           {/* 5 filled stars */}
           <div className="flex items-center justify-center gap-1 mb-3">
@@ -46,7 +47,7 @@ export default function ReviewSection() {
             ))}
           </div>
           <p className="text-base text-[var(--color-foreground)]/70">
-            {RESTAURANT_INFO.reviewCount.toLocaleString()} Google Reviews
+            <AnimatedNumber value={RESTAURANT_INFO.reviewCount} /> Google Reviews
           </p>
           <p className="text-xs text-[var(--color-foreground)]/50 mt-2 italic">
             Based on Google review summary
@@ -84,7 +85,7 @@ export default function ReviewSection() {
             href={RESTAURANT_INFO.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent-terracotta)] text-white font-medium rounded-md hover:bg-opacity-90 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-accent-terracotta)]"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent-terracotta)] text-white font-medium rounded-md hover:bg-opacity-90 active:scale-95 transition-all duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--color-accent-terracotta)]"
           >
             Read All Google Reviews
             <ExternalLink size={16} />

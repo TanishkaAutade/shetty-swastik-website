@@ -21,7 +21,7 @@ export default function FinalCTA() {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="#menu"
-              className="inline-flex items-center gap-2 bg-white text-[var(--color-accent-terracotta)] px-6 py-3 rounded-md font-medium hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-[var(--color-accent-terracotta)] px-6 py-3 rounded-md font-medium hover:bg-white/90 active:scale-95 transition-all duration-100"
             >
               <UtensilsCrossed size={18} />
               View Menu
@@ -31,7 +31,7 @@ export default function FinalCTA() {
               href={RESTAURANT_INFO.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-transparent border border-white text-white hover:bg-white/10 px-6 py-3 rounded-md font-medium transition-colors"
+              className="inline-flex items-center gap-2 bg-transparent border border-white text-white hover:bg-white/10 active:scale-95 px-6 py-3 rounded-md font-medium transition-all duration-100"
             >
               <MapPin size={18} />
               Get Directions
@@ -39,7 +39,7 @@ export default function FinalCTA() {
             
             <a
               href={RESTAURANT_INFO.phoneLink}
-              className="inline-flex items-center gap-2 bg-transparent border border-white text-white hover:bg-white/10 px-6 py-3 rounded-md font-medium transition-colors"
+              className="inline-flex items-center gap-2 bg-transparent border border-white text-white hover:bg-white/10 active:scale-95 px-6 py-3 rounded-md font-medium transition-all duration-100"
             >
               <Phone size={18} />
               Call Now

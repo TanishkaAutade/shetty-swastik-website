@@ -3,14 +3,29 @@
 import { Star, MessageSquare, Leaf, Car, Zap } from "lucide-react";
 import { RESTAURANT_INFO } from "../data/restaurant";
 import { Reveal } from "./Reveal";
+import { AnimatedNumber } from "./AnimatedNumber";
 
 export default function TrustBar() {
   const items = [
-    { icon: Star, label: `${RESTAURANT_INFO.rating} Google Rating` },
-    { icon: MessageSquare, label: `${RESTAURANT_INFO.reviewCount.toLocaleString()} Reviews` },
-    { icon: Leaf, label: "Pure Vegetarian" },
-    { icon: Car, label: "Ample Parking" },
-    { icon: Zap, label: "Quick Service" },
+    {
+      icon: Star,
+      content: (
+        <>
+          <AnimatedNumber value={RESTAURANT_INFO.rating} decimals={1} /> Google Rating
+        </>
+      ),
+    },
+    {
+      icon: MessageSquare,
+      content: (
+        <>
+          <AnimatedNumber value={RESTAURANT_INFO.reviewCount} /> Reviews
+        </>
+      ),
+    },
+    { icon: Leaf, content: "Pure Vegetarian" },
+    { icon: Car, content: "Ample Parking" },
+    { icon: Zap, content: "Quick Service" },
   ];
 
   return (
@@ -24,7 +39,7 @@ export default function TrustBar() {
                 <div className="flex items-center space-x-3 group">
                   <Icon className="text-[var(--color-accent-terracotta)] w-5 h-5 flex-shrink-0" />
                   <span className="font-[family-name:var(--font-body)] text-[var(--color-foreground)] font-medium text-sm md:text-base">
-                    {item.label}
+                    {item.content}
                   </span>
                 </div>
                 {index < items.length - 1 && (

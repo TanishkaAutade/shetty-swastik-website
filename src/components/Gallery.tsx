@@ -47,7 +47,7 @@ function GalleryTile({
 
   return (
     <div
-      className={`group relative cursor-pointer rounded-lg overflow-hidden ${isTall ? "row-span-2" : ""}`}
+      className={`group relative cursor-pointer rounded-lg overflow-hidden active:scale-[0.98] transition-transform duration-100 ${isTall ? "row-span-2" : ""}`}
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -136,7 +136,7 @@ export default function Gallery() {
                     setActiveTab(tab);
                     setLightboxIndex(null);
                   }}
-                  className={`whitespace-nowrap rounded-full px-5 py-2 text-sm border transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-terracotta)] focus-visible:ring-offset-2 ${
+                  className={`whitespace-nowrap rounded-full px-5 py-2 text-sm border active:scale-95 transition-all duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-terracotta)] focus-visible:ring-offset-2 ${
                     isActive
                       ? "bg-[var(--color-accent-terracotta)] text-white border-[var(--color-accent-terracotta)]"
                       : "bg-[var(--color-surface)] text-[var(--color-foreground)] border-black/10 hover:border-[var(--color-accent-terracotta)]/40"

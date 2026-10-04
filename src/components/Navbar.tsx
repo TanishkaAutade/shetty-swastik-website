@@ -75,7 +75,7 @@ export default function Navbar() {
               href={RESTAURANT_INFO.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 bg-[var(--color-accent-terracotta)] text-[var(--color-background)] text-sm font-medium rounded-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent-terracotta)]"
+              className="inline-flex items-center px-4 py-2 bg-[var(--color-accent-terracotta)] text-[var(--color-background)] text-sm font-medium rounded-md hover:bg-opacity-90 active:scale-95 transition-all duration-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent-terracotta)]"
             >
               Get Directions
             </a>

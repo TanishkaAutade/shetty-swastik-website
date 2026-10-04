@@ -7,7 +7,7 @@ export default function MobileActionBar() {
       <div className="grid grid-cols-3 divide-x divide-black/10">
         <a 
           href={RESTAURANT_INFO.phoneLink}
-          className="py-3 flex flex-col items-center justify-center gap-1 text-xs font-medium text-foreground hover:bg-gray-50 transition-colors"
+          className="py-3 flex flex-col items-center justify-center gap-1 text-xs font-medium text-foreground hover:bg-gray-50 active:bg-gray-100 active:scale-95 transition-all duration-100"
         >
           <Phone size={18} className="text-[var(--color-accent-terracotta)]" />
           Call
@@ -16,14 +16,14 @@ export default function MobileActionBar() {
           href={RESTAURANT_INFO.googleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="py-3 flex flex-col items-center justify-center gap-1 text-xs font-medium text-foreground hover:bg-gray-50 transition-colors"
+          className="py-3 flex flex-col items-center justify-center gap-1 text-xs font-medium text-foreground hover:bg-gray-50 active:bg-gray-100 active:scale-95 transition-all duration-100"
         >
           <MapPin size={18} className="text-[var(--color-accent-terracotta)]" />
           Directions
         </a>
         <a 
           href="#menu"
-          className="py-3 flex flex-col items-center justify-center gap-1 text-xs font-medium text-foreground hover:bg-gray-50 transition-colors"
+          className="py-3 flex flex-col items-center justify-center gap-1 text-xs font-medium text-foreground hover:bg-gray-50 active:bg-gray-100 active:scale-95 transition-all duration-100"
         >
           <UtensilsCrossed size={18} className="text-[var(--color-accent-terracotta)]" />
           Menu

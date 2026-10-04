@@ -93,7 +93,7 @@ export default function MenuSection() {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setActiveCategory(cat)}
-                className={`whitespace-nowrap rounded-full px-5 py-2 min-h-[44px] text-sm border transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-terracotta)] focus-visible:ring-offset-2 flex items-center justify-center ${
+                className={`whitespace-nowrap rounded-full px-5 py-2 min-h-[44px] text-sm border active:scale-95 transition-all duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-terracotta)] focus-visible:ring-offset-2 flex items-center justify-center ${
                   isActive
                     ? "bg-[var(--color-accent-terracotta)] text-white border-[var(--color-accent-terracotta)]"
                     : "bg-[var(--color-surface)] text-[var(--color-foreground)] border-black/10 hover:border-[var(--color-accent-terracotta)]/40"

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { RESTAURANT_INFO } from "../data/restaurant";
+import { AnimatedNumber } from "./AnimatedNumber";
 
 // ─── Animation variants ───────────────────────────────────────────────────────
 
@@ -85,7 +86,7 @@ export default function Hero() {
           >
             <a
               href="#menu"
-              className="inline-flex justify-center items-center px-6 py-3 bg-[var(--color-accent-terracotta)] text-[var(--color-background)] font-medium rounded-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent-terracotta)]"
+              className="inline-flex justify-center items-center px-6 py-3 bg-[var(--color-accent-terracotta)] text-[var(--color-background)] font-medium rounded-md hover:bg-opacity-90 active:scale-95 transition-all duration-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent-terracotta)]"
             >
               Explore Menu
             </a>
@@ -93,7 +94,7 @@ export default function Hero() {
               href={RESTAURANT_INFO.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex justify-center items-center px-6 py-3 border-2 border-[var(--color-accent-terracotta)] text-[var(--color-accent-terracotta)] font-medium rounded-md hover:bg-[var(--color-accent-terracotta)] hover:text-[var(--color-background)] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent-terracotta)]"
+              className="inline-flex justify-center items-center px-6 py-3 border-2 border-[var(--color-accent-terracotta)] text-[var(--color-accent-terracotta)] font-medium rounded-md hover:bg-[var(--color-accent-terracotta)] hover:text-[var(--color-background)] active:scale-95 transition-all duration-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent-terracotta)]"
             >
               Get Directions
             </a>
@@ -104,8 +105,8 @@ export default function Hero() {
             variants={prefersReduced ? undefined : itemVariants}
           >
             <span className="text-[var(--color-accent-brass)]">★</span>
-            <span className="font-semibold">{RESTAURANT_INFO.rating}</span>
-            <span>· {RESTAURANT_INFO.reviewCount.toLocaleString()}+ Google Reviews</span>
+            <span className="font-semibold"><AnimatedNumber value={RESTAURANT_INFO.rating} decimals={1} /></span>
+            <span>· <AnimatedNumber value={RESTAURANT_INFO.reviewCount} suffix="+" /> Google Reviews</span>
           </motion.div>
         </motion.div>
 
